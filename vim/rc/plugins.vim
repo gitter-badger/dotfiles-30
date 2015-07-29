@@ -1,49 +1,15 @@
-" ------------------------------------------------------------------------------
-" UTILITY
-" ------------------------------------------------------------------------------
-" 'rhysd/accelerated-jk' {{{
-" ------------------------------------------------------------------------------
-" jkを加速する
-" conservative deceleration
-" let g:accelerated_jk_enable_deceleration = 1
-" nmap j <Plug>(accelerated_jk_gj)
-" nmap k <Plug>(accelerated_jk_gk)
-" }}}
-" ------------------------------------------------------------------------------
-" 'cohama/lexima.vim' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" 'jiangmiao/auto-pairs' {{{
-" ------------------------------------------------------------------------------
+" 'jiangmiao/auto-pairs'
 let g:AutoPairsShortcutToggle = '' " disable
 let g:AutoPairsShortcutJump = '' " disable
 let g:AutoPairsShortcutBackInsert = '' " disable
 let g:AutoPairsShortcutFastWrap = '<C-e>'
-" }}}
 
 vmap <C-v> <Plug>(expand_region_expand)
 vmap v     <Plug>(expand_region_shrink)
 
 " ------------------------------------------------------------------------------
-" OPERATOR
-" ------------------------------------------------------------------------------
-" 'kana/vim-operator-user' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" 'kana/vim-operator-replace' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" COMPLETE
-" ------------------------------------------------------------------------------
-" 'Shougo/neocomplete.vim' {{{
-" ------------------------------------------------------------------------------
+" 'Shougo/neocomplete.vim'
 if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
-    " --------------------------------------------------------------------------
-    " neocomplete の設定
-    " --------------------------------------------------------------------------
     "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
     " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
@@ -96,6 +62,7 @@ if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
     inoremap <expr><Down>  pumvisible() ? "\<C-n>" : "\<Down>"
 
     " Enable omni completion.
+    AutocmdFT * set formatoptions-=ro
     AutocmdFT css setlocal omnifunc=csscomplete#CompleteCSS
     AutocmdFT html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     AutocmdFT javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -142,10 +109,9 @@ if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
     let g:jedi#rename_command = ",r"
     let g:jedi#popup_on_dot = 0
 endif
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'Shougo/neosnippet' {{{
-" ------------------------------------------------------------------------------
+" 'Shougo/neosnippet'
 " Plugin key-mappings.
 imap <expr><Tab> neosnippet#expandable_or_jumpable() ?
             \ "\<Plug>(neosnippet_expand_or_jump)"
@@ -158,12 +124,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-" }}}
+
 " ------------------------------------------------------------------------------
-" UNITE & UNITE SOURCES
-" ------------------------------------------------------------------------------
-" 'Shougo/unite.vim' {{{
-" ------------------------------------------------------------------------------
+" 'Shougo/unite.vim'
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 50
 let g:unite_split_rule = 'botright'
@@ -175,59 +138,30 @@ nnoremap <silent> <Space>g :<C-u>Unite -start-insert file_rec/git<CR>
 nnoremap <silent> <Space>r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <Space>i :<C-u>Unite file_include<CR>
 nnoremap <silent> <Space>l :<C-u>Unite -start-insert line<CR>
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'Shougo/neomru' {{{
-" ------------------------------------------------------------------------------
+" 'Shougo/neomru'
 nnoremap <silent> <Space>u :<C-u>Unite -start-insert file_mru buffer:-<CR>
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'Shougo/unite-outline' {{{
-" ------------------------------------------------------------------------------
+" 'Shougo/unite-outline'
 nnoremap <silent> <Space>o :<C-u>Unite -wrap -vertical -no-quit -keep-focus outline<CR>
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'sgoranson/unite-mark' {{{
-" ------------------------------------------------------------------------------
+" 'sgoranson/unite-mark'
 nnoremap <silent> <Space>m :<C-u>Unite mark<CR>
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'tsukkee/unite-tag' {{{
-" ------------------------------------------------------------------------------
+" 'tsukkee/unite-tag'
 let g:unite_source_tag_max_name_length = 60
 let g:unite_source_tag_max_fname_length = 40
-Autocmd BufEnter *
+autocmd BufEnter *
     \ if empty(&buftype)
     \| nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag tag/include<CR>
     \| endif
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'Shougo/vimfiler' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" 'Shougo/vimshell.vim' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" TREE VIEW / EXPROLER
-" ------------------------------------------------------------------------------
-" 'scrooloose/nerdtree' {{{
-" ------------------------------------------------------------------------------
-augroup my_nerdtree_settings
-    autocmd!
-    " key mappings
-    nmap <silent> <Space>F :<C-u>NERDTreeToggle<CR>
-    " auto close when last buffer is NERDTree
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&
-            \ b:NERDTreeType == "primary") | q | endif
-augroup END
-" }}}
-" ------------------------------------------------------------------------------
-" BUFFER
-" ------------------------------------------------------------------------------
-" 'mopp/next-alter.vim' {{{
-" ------------------------------------------------------------------------------
+" 'mopp/next-alter.vim'
 let g:next_alter#do_not_create_not_exist_pair_extension = 2
 " key is file extension, value is alternate file extension.
 let g:next_alter#pair_extension = {
@@ -253,50 +187,35 @@ let g:next_alter#open_option = 'vertical topleft'
 
 " key mapping
 nnoremap <silent> <Space>a :<C-u>OpenNAlter<CR>
-" }}}
+
 " ------------------------------------------------------------------------------
-" MOTION
-" ------------------------------------------------------------------------------
-" 'rhysd/clever-f.vim' {{{
-" ------------------------------------------------------------------------------
+" 'rhysd/clever-f.vim'
 let g:clever_f_across_no_line=1
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'Lokaltog/vim-easymotion' {{{
-" ------------------------------------------------------------------------------
+" 'Lokaltog/vim-easymotion'
 " Disable default mappings
 let g:EasyMotion_do_mapping = 0
 nmap s <Plug>(easymotion-s2)
 " Turn on case sensitive feature
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-" }}}
+
 " ------------------------------------------------------------------------------
-" COMMENT OUT
-" ------------------------------------------------------------------------------
-" 'tyru/caw.vim' {{{
-" ------------------------------------------------------------------------------
+" 'tyru/caw.vim'
 " デフォルトマッピングを OFF
 let g:caw_no_default_keymappings = 1
 " キーマッピング
 nmap <silent> ,/ <Plug>(caw:i:toggle)
 vmap <silent> ,/ <Plug>(caw:i:toggle)
-" }}}
+
 " ------------------------------------------------------------------------------
-" GIT
-" ------------------------------------------------------------------------------
-" 'airblade/vim-gitgutter' {{{
-" ------------------------------------------------------------------------------
+" 'airblade/vim-gitgutter'
 let g:rooter_disable_map = 1
 let g:rooter_change_directory_for_non_project_files = 1
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'tpope/vim-fugitive' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" 'airblade/vim-gitgutter' {{{
-" ------------------------------------------------------------------------------
+" 'airblade/vim-gitgutter'
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_added = '✚'
 let g:gitgutter_sign_modified = '➜'
@@ -305,14 +224,9 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 1
 let g:gitgutter_max_signs = 2000
 let g:gitgutter_escape_grep = 1
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'kmnk/vim-unite-giti' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" 'rhysd/committia.vim' {{{
-" ------------------------------------------------------------------------------
+" 'rhysd/committia.vim'
 " You can get the information about the windows with first argument as a dictionary.
 "
 "   KEY              VALUE                      AVAILABILITY
@@ -341,38 +255,20 @@ function! g:committia_hooks.edit_open(info)
     imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
 
 endfunction
-" }}}
+
 " ------------------------------------------------------------------------------
-" 'cohama/agit.vim' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" QUICKFIX
-" ------------------------------------------------------------------------------
-" 'dannyob/quickfixstatus' {{{
-" }}}
-" ------------------------------------------------------------------------------
-" 'cohama/vim-hier' {{{
-" ------------------------------------------------------------------------------
+" 'cohama/vim-hier'
 " let g:hier_enabled = 1
 let g:hier_enabled = 0
-" }}}
+
 " ------------------------------------------------------------------------------
-" SEARCH
-" ------------------------------------------------------------------------------
-" 'thinca/vim-visualstar' {{{
-" }}}
-" ------------------------------------------------------------------------------
-" 'haya14busa/incsearch.vim' {{{
+" 'haya14busa/incsearch.vim'
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-" }}}
+
 " ------------------------------------------------------------------------------
-" SYNTAX CHECK
-" ------------------------------------------------------------------------------
-" 'scrooloose/syntastic' {{{
-" ------------------------------------------------------------------------------
+" 'scrooloose/syntastic'
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
@@ -396,10 +292,9 @@ let g:syntastic_cpp_cpplint_thres = 5
 let g:syntastic_cpp_cpplint_args = '--verbose=3'
 
 nnoremap <silent> <Space>s :<C-u>SyntasticCheck cpplint<CR>
-" }}}
+
 " ------------------------------------------------------------------------------
-" == TRIAL == 'osyo-manga/vim-watchdogs' {{{
-" ------------------------------------------------------------------------------
+" == TRIAL == 'osyo-manga/vim-watchdogs'
 " NeoBundle 'thinca/vim-quickrun'
 " let g:quickrun_config = {
 " \    'watchdogs_checker/_' : {
@@ -413,19 +308,109 @@ nnoremap <silent> <Space>s :<C-u>SyntasticCheck cpplint<CR>
 " let g:qfsigns#AutoJump = 1
 " " If syntax error, view split and cursor is moved at line setting sign.
 " let g:qfsigns#AutoJump = 2
-" }}}
+
 " ------------------------------------------------------------------------------
-" STATUS LINE
+let g:quickrun_no_default_key_mappings = 1
+"QuickRunのキーマップ
+nnoremap <silent><F5> :<C-u>QuickRun<CR>
+vnoremap <silent><F5> :QuickRun<CR>
+
 " ------------------------------------------------------------------------------
-" 'itchyny/lightline.vim' {{{
+" file type 毎設定
+" -- C/C++
+" 標準ライブラリへのパスを設定
+" http://d.hatena.ne.jp/osyo-manga/20131219/1387465034
+let $CPP_STDLIB = "/usr/include/c++"
+augroup vimrc-set_filetype_cpp_stdlib
+    autocmd!
+    " $CPP_STDLIB よりも下の階層のファイルが開かれて
+    " filetype が設定されていない場合に filetype=cpp を設定する
+    autocmd BufReadPost $CPP_STDLIB/* if empty(&filetype) | set filetype=cpp | endif
+augroup END
 " ------------------------------------------------------------------------------
+" 名前空間の入力を簡単にする
+" ------------------------------------------------------------------------------
+" http://rhysd.hatenablog.com/entry/2013/12/10/233201#namespace
+augroup cpp-namespace
+    autocmd!
+    autocmd FileType cpp inoremap <buffer><expr>; <SID>expand_namespace()
+augroup END
+function! s:expand_namespace()
+    let s = getline('.')[0:col('.')-1]
+    if s =~# '\<b;$'
+        return "\<BS>oost::"
+    elseif s =~# '\<s;$'
+        return "\<BS>td::"
+    elseif s =~# '\<d;$'
+        return "\<BS>etail::"
+    else
+        return ';'
+    endif
+endfunction
+
+" ------------------------------------------------------------------------------
+" 'Rip-Rip/clang_complete'
+set completeopt=menuone
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
+let g:clang_complete_copen = 0
+let g:clang_hl_errors = 0
+let g:clang_snippets = 0
+let g:clang_trailing_placeholder = 0
+let g:clang_use_library = 1
+let g:clang_complete_macros = 0
+let g:clang_complete_patterns = 0
+
+" let g:clang_library_path = '/usr/lib/llvm' "fodra32
+" let g:clang_library_path = '/usr/lib64/llvm' "fedora64
+" let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu64
+let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu32
+
+let g:clang_debug = 0
+let g:clang_user_options = '-std= c++1y -w'
+
+" ------------------------------------------------------------------------------
+" 'fatih/vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods   = 1
+let g:go_highlight_structs   = 1
+
+" ------------------------------------------------------------------------------
+" 'beyondmarc/opengl.vim'
+autocmd BufRead *.c,*.h,*.cpp,*.hpp call MyOpenGLCheck()
+function! MyOpenGLCheck()
+  if search('^#include <gl.*\.h>','n') > 0 ||
+  \  search('^#include <GL.*/gl.*\.h>', 'n') > 0 ||
+  \  search('^#include <EGL/egl.h>', 'n') > 0
+    NeoBundleSource opengl.vim
+  endif
+endfunction
+
+" ------------------------------------------------------------------------------
+" 'kannokanno/previm' markdown
+autocmd BufRead,BufNewFile *.{md,mkdn} set filetype=markdown
+let g:previm_open_cmd = ''
+nnoremap [previm] <Nop>
+nmap <Space>p [previm]
+nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+nnoremap <silent> [previm]r :call previm#refresh()<CR>
+
+" alt-gtags.vim
+nnoremap <C-g>j :AltGtags<CR>
+nnoremap <C-g>k :AltGtags -r<CR>
+nnoremap <C-g>l :AltGtags -s<CR>
+
+
+" ------------------------------------------------------------------------------
+" 'itchyny/lightline.vim'
+"
 let g:lightline = {
   \ 'colorscheme': 'wombat',
   \ 'mode_map': {'c': 'NORMAL'},
   \ 'active': {
   \   'left': [
   \     ['mode', 'paste'],
-  \     ['readonly','gitgutter', 'filename', 'modified'],
+  \     ['readonly', 'gitgutter', 'filename', 'modified'],
   \   ],
   \   'right': [
   \     ['lineinfo'],
@@ -530,161 +515,24 @@ function! MyGitGutter()
   endfor
   return join(ret, ' ')
 endfunction
-" }}}
+
+
 " ------------------------------------------------------------------------------
-let g:quickrun_no_default_key_mappings = 1
-"QuickRunのキーマップ
-nnoremap <silent><F5> :<C-u>QuickRun<CR>
-vnoremap <silent><F5> :QuickRun<CR>
-" }}}
-" ------------------------------------------------------------------------------
-" file type 毎設定 {{{
-" ------------------------------------------------------------------------------
-" -- C/C++
-" ------------------------------------------------------------------------------
-" common {{{
-" ------------------------------------------------------------------------------
-" 標準ライブラリへのパスを設定
-" ------------------------------------------------------------------------------
-" http://d.hatena.ne.jp/osyo-manga/20131219/1387465034
-let $CPP_STDLIB = "/usr/include/c++"
-augroup vimrc-set_filetype_cpp_stdlib
-    autocmd!
-    " $CPP_STDLIB よりも下の階層のファイルが開かれて
-    " filetype が設定されていない場合に filetype=cpp を設定する
-    autocmd BufReadPost $CPP_STDLIB/* if empty(&filetype) | set filetype=cpp | endif
+" 'VimFiler'
+"vimデフォルトのエクスプローラをvimfilerで置き換える
+let g:vimfiler_as_default_explorer = 1
+"デフォルトのキーマッピングを変更
+nnoremap <Space>F :VimFilerExplorer<CR>
+
+augroup vim-filer
+    autocmd FileType vimfiler call s:vimfiler_my_settings()
 augroup END
-" ------------------------------------------------------------------------------
-" 名前空間の入力を簡単にする
-" ------------------------------------------------------------------------------
-" http://rhysd.hatenablog.com/entry/2013/12/10/233201#namespace
-augroup cpp-namespace
-    autocmd!
-    autocmd FileType cpp inoremap <buffer><expr>; <SID>expand_namespace()
-augroup END
-function! s:expand_namespace()
-    let s = getline('.')[0:col('.')-1]
-    if s =~# '\<b;$'
-        return "\<BS>oost::"
-    elseif s =~# '\<s;$'
-        return "\<BS>td::"
-    elseif s =~# '\<d;$'
-        return "\<BS>etail::"
-    else
-        return ';'
-    endif
+function! s:vimfiler_my_settings()
+    nmap <buffer> q <Plug>(vimfiler_exit)
+    nmap <buffer> Q <Plug>(vimfiler_hide)
+    nmap <buffer> <C-j> <C-w>j
+    nmap <buffer> <C-k> <C-w>k
+    nmap <buffer> <C-h> <C-w>h
+    nmap <buffer> <C-l> <C-w>l
+    nmap <buffer> u <BS>
 endfunction
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" 'vim-jp/cpp-vim' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" 'Rip-Rip/clang_complete' {{{
-" ------------------------------------------------------------------------------
-set completeopt=menuone
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_complete_copen = 0
-let g:clang_hl_errors = 0
-let g:clang_snippets = 0
-let g:clang_trailing_placeholder = 0
-let g:clang_use_library = 1
-let g:clang_complete_macros = 0
-let g:clang_complete_patterns = 0
-
-" let g:clang_library_path = '/usr/lib/llvm' "fodra32
-" let g:clang_library_path = '/usr/lib64/llvm' "fedora64
-" let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu64
-let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu32
-
-let g:clang_debug = 0
-let g:clang_user_options = '-std= c++1y -w'
-
-" }}}
-" ------------------------------------------------------------------------------
-" == TRIAL == 'bbchung/clighter' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" -- Go
-" ------------------------------------------------------------------------------
-" 'fatih/vim-go' {{{
-let g:go_highlight_functions = 1
-let g:go_highlight_methods   = 1
-let g:go_highlight_structs   = 1
-" }}}
-" ------------------------------------------------------------------------------
-" ------------------------------------------------------------------------------
-" -- QML
-" ------------------------------------------------------------------------------
-" 'peterhoeg/vim-qml' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" -- JSON
-" ------------------------------------------------------------------------------
-" 'elzr/vim-json' {{{
-" }}}
-" ------------------------------------------------------------------------------
-" -- Open CL (*.cl)
-" ------------------------------------------------------------------------------
-" 'frasercrmck/opencl.vim' {{{
-" ------------------------------------------------------------------------------
-" }}}
-" ------------------------------------------------------------------------------
-" -- Open GL
-" ------------------------------------------------------------------------------
-" 'beyondmarc/opengl.vim' {{{
-" ------------------------------------------------------------------------------
-Autocmd BufRead *.c,*.h,*.cpp,*.hpp call MyOpenGLCheck()
-function! MyOpenGLCheck()
-  if search('^#include <gl.*\.h>','n') > 0 ||
-  \  search('^#include <GL.*/gl.*\.h>', 'n') > 0 ||
-  \  search('^#include <EGL/egl.h>', 'n') > 0
-    NeoBundleSource opengl.vim
-  endif
-endfunction
-" }}}
-" ------------------------------------------------------------------------------
-" -- Markdown
-" ------------------------------------------------------------------------------
-" 'kannokanno/previm' {{{
-" ------------------------------------------------------------------------------
-Autocmd BufRead,BufNewFile *.{md,mkdn} set filetype=markdown
-let g:previm_open_cmd = ''
-nnoremap [previm] <Nop>
-nmap <Space>p [previm]
-nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
-nnoremap <silent> [previm]r :call previm#refresh()<CR>
-" }}}
-" ------------------------------------------------------------------------------
-  " -- CoffeeScript
-" ------------------------------------------------------------------------------
-" {{{
-" vimにcoffeeファイルタイプを認識させる
-au BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee
-" インデントを設定
-autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
-
-"------------------------------------
-" indent_guides
-"------------------------------------
-" インデントの深さに色を付ける
-let g:indent_guides_start_level=2
-let g:indent_guides_auto_colors=0
-let g:indent_guides_enable_on_vim_startup=0
-let g:indent_guides_color_change_percent=20
-let g:indent_guides_guide_size=1
-let g:indent_guides_space_guides=1
-
-hi IndentGuidesOdd  ctermbg=235
-hi IndentGuidesEven ctermbg=237
-au FileType coffee,ruby,javascript,python IndentGuidesEnable
-nmap <silent><Leader>ig <Plug>IndentGuidesToggle
-
-" alt-gtags.vim
-nnoremap <C-g>j :AltGtags<CR>
-nnoremap <C-g>k :AltGtags -r<CR>
-nnoremap <C-g>l :AltGtags -s<CR>

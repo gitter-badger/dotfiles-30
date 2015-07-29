@@ -9,15 +9,6 @@ repository = 'Shougo/vimproc.vim'
     mac     = 'make -f make_mac.mak'
     unix    = 'make -f make_unix.mak'
 
-[[plugins]]
-repository = 'rhysd/accelerated-jk'
-
-[[plugins]]
-repository = 'jiangmiao/auto-pairs'
-
-[[plugins]]
-repository = 'terryma/vim-expand-region'
-
 # complete
 [[plugins]]
 repository = 'Shougo/neocomplete.vim'
@@ -47,25 +38,30 @@ repository = 'Shougo/unite-outline'
 repository = 'cespare/vim-toml'
 filetypes  = 'toml'
 
-# File tree view
 [[plugins]]
-repository = 'scrooloose/nerdtree'
-    [plugins.commands]
-    name = 'NERDTreeToggle'
+repository = 'Shougo/vimfiler.vim'
+depends    = 'Shougo/unite.vim'
+mappings = '<Plug>'
+explorer = 1
 
-# file swap
-[[plugins]]
-repository = 'koara-local/next-alter.vim'
-filetypes  =  ['c', 'cpp']
+  [plugins.commands]
+  name = ['VimFiler']
+  complete = 'customlist,vimfiler#complete'
 
 # MOTION
 [[plugins]]
 repository = 'rhysd/clever-f.vim'
 
+[[plugins]]
+repository = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repository = 'terryma/vim-expand-region'
+
 # COMMENT OUT
 [[plugins]]
 repository = 'tyru/caw.vim'
-mappings = '<Plug>'
+mappings   = '<Plug>'
 
 # GIT
 [[plugins]]
@@ -76,9 +72,6 @@ repository = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repository = 'rhysd/committia.vim'
-
-[[plugins]]
-repository = 'cohama/agit.vim'
 
 [[plugins]]
 repository = 'AndrewRadev/gapply.vim'
@@ -114,14 +107,32 @@ repository = 'itchyny/lightline.vim'
 [[plugins]]
 repository = 'thinca/vim-quickrun'
 
+[[plugins]]
+repository = 'tyru/open-browser.vim'
+filetypes  = 'markdown'
+
+# file swap
+[[plugins]]
+repository = 'koara-local/next-alter.vim'
+filetypes  =  ['c', 'cpp']
+
+# Langage syntax
+# python
+[[plugins]]
+repository = 'davidhalter/jedi-vim'
+filetypes  = 'python'
+    [plugins.build]
+    others = 'git submodule update --init'
+
 # C/C++
 [[plugins]]
 repository = 'Rip-Rip/clang_complete'
 filetypes  =  ['c', 'cpp']
 
-# Go
+# Qt
 [[plugins]]
-repository = 'fatih/vim-go'
+repository = 'Townk/vim-qt'
+filetypes  =  ['c', 'cpp', 'qml']
 
 # QML
 [[plugins]]
@@ -132,6 +143,24 @@ filetypes  = 'qml'
 [[plugins]]
 repository = 'elzr/vim-json'
 filetypes  = 'json'
+
+# Markdown
+[[plugins]]
+repository = 'kannokanno/previm'
+filetypes  = 'markdown'
+
+[[plugins]]
+repository = 'plasticboy/vim-markdown'
+filetypes  = 'markdown'
+
+# wayland
+[[plugins]]
+repository = 'koara-local/vim-wayland'
+filetypes  =  ['c', 'cpp']
+
+# Go
+[[plugins]]
+repository = 'fatih/vim-go'
 
 # Open CL (*.cl)
 [[plugins]]
@@ -146,24 +175,3 @@ lazy = 1
 # GLSL
 [[plugins]]
 repository = 'beyondmarc/glsl.vim'
-
-# wayland
-[[plugins]]
-repository = 'koara-local/vim-wayland'
-filetypes  =  ['c', 'cpp']
-
-# python
-[[plugins]]
-repository = 'davidhalter/jedi-vim'
-filetypes  = 'python'
-    [plugins.build]
-    others = 'git submodule update --init'
-
-# Markdown
-[[plugins]]
-repository = 'kannokanno/previm'
-filetypes  = 'markdown'
-
-[[plugins]]
-repository = 'tyru/open-browser.vim'
-filetypes  = 'markdown'

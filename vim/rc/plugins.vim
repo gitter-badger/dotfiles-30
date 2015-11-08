@@ -350,24 +350,24 @@ endfunction
 
 " ------------------------------------------------------------------------------
 " 'Rip-Rip/clang_complete'
-set completeopt=menuone
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_complete_copen = 0
-let g:clang_hl_errors = 0
-let g:clang_snippets = 0
-let g:clang_trailing_placeholder = 0
-let g:clang_use_library = 1
-let g:clang_complete_macros = 0
-let g:clang_complete_patterns = 0
-
-" let g:clang_library_path = '/usr/lib/llvm' "fodra32
-" let g:clang_library_path = '/usr/lib64/llvm' "fedora64
-" let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu64
-let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu32
-
-let g:clang_debug = 0
-let g:clang_user_options = '-std= c++1y -w'
+" set completeopt=menuone
+" let g:clang_complete_auto = 0
+" let g:clang_auto_select = 0
+" let g:clang_complete_copen = 0
+" let g:clang_hl_errors = 0
+" let g:clang_snippets = 0
+" let g:clang_trailing_placeholder = 0
+" let g:clang_use_library = 1
+" let g:clang_complete_macros = 0
+" let g:clang_complete_patterns = 0
+"
+" " let g:clang_library_path = '/usr/lib/llvm' "fodra32
+" " let g:clang_library_path = '/usr/lib64/llvm' "fedora64
+" " let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu64
+" let g:clang_library_path = '/usr/lib/llvm-3.5/lib' "Ubuntu32
+"
+" let g:clang_debug = 0
+" let g:clang_user_options = '-std= c++1y -w'
 
 " ------------------------------------------------------------------------------
 " 'fatih/vim-go'

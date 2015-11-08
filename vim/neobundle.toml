@@ -128,10 +128,6 @@ filetypes  = 'python'
     [plugins.build]
     others = 'git submodule update --init'
 
-# C/C++
-[[plugins]]
-repository = 'Rip-Rip/clang_complete'
-filetypes  =  ['c', 'cpp']
 
 # Qt
 [[plugins]]

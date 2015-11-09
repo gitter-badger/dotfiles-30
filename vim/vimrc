@@ -89,8 +89,6 @@ if neobundle#load_cache()
     " call neobundle#load_toml('~/.vim/neobundle.toml', {'lazy' : 1})
     call neobundle#load_toml('~/.vim/neobundle.toml')
 
-    " NeoBundle 'haya14busa/incsearch.vim'
-
     NeoBundleSaveCache
 endif
 

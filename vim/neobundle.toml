@@ -179,3 +179,8 @@ lazy = 1
 # GLSL
 [[plugins]]
 repository = 'beyondmarc/glsl.vim'
+
+# Completion
+[[plugins]]
+repository = 'justmao945/vim-clang'
+filetypes  =  ['c', 'cpp']

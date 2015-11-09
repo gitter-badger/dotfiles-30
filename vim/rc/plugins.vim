@@ -536,3 +536,10 @@ function! s:vimfiler_my_settings()
     nmap <buffer> <C-l> <C-w>l
     nmap <buffer> u <BS>
 endfunction
+
+
+" ------------------------------------------------------------------------------
+" 'vim-clang'
+"
+let g:clang_c_options = '-std=gnu11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'

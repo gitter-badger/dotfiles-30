@@ -103,6 +103,10 @@ repository = 'scrooloose/syntastic'
 [[plugins]]
 repository = 'itchyny/lightline.vim'
 
+# COLOR
+[[plugins]]
+repository = 'w0ng/vim-hybrid'
+
 # QuickRun
 [[plugins]]
 repository = 'thinca/vim-quickrun'

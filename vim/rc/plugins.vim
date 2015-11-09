@@ -127,7 +127,7 @@ endif
 
 " ------------------------------------------------------------------------------
 " 'Shougo/unite.vim'
-let g:unite_source_history_yank_enable =1
+let g:neoyank#limit = 50
 let g:unite_source_file_mru_limit = 50
 let g:unite_split_rule = 'botright'
 nnoremap <silent> <Space>y :<C-u>Unite history/yank<CR>

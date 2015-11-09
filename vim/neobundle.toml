@@ -25,7 +25,7 @@ unite_sources = ['neosnippet', 'neosnippet/user', 'neosnippet/runtime']
 # Unite
 [[plugins]]
 repository = 'Shougo/unite.vim'
-depends    = 'Shougo/neomru.vim'
+depends    = ['Shougo/neomru.vim', 'Shougo/neoyank.vim']
     [plugins.commands]
     name     = 'Unite'
     complete = 'customlist,unite#complete_source'

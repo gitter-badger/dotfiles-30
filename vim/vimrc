@@ -125,6 +125,7 @@ call s:source_rc('edit.vim')
 " View
 "
 call s:source_rc('view.vim')
+call s:source_rc('plugins-syntax.vim')
 
 "------------------------------------------------------------------------------
 " Mappings

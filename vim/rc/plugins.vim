@@ -24,6 +24,7 @@ if has('lua') && (v:version > 703 || (v:version == 703 && has('patch885')))
     let g:neocomplete#max_list = 10
     " 補完の最大長設定(path補完のために増やす)
     let g:neocomplete#max_keyword_width = 140
+    let g:neocomplete#disable_auto_complete = 1
 
     " Define dictionary.
     let g:neocomplete#sources#dictionary#dictionaries = {

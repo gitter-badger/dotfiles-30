@@ -10,14 +10,14 @@ if has('syntax')
   colorscheme hybrid
 
   " 行番号の色を設定
-  hi LineNr ctermbg=0 ctermfg=8
-  hi CursorLineNr ctermbg=235 ctermfg=3
+  " hi LineNr ctermbg=0 ctermfg=8
+  " hi CursorLineNr ctermbg=235 ctermfg=3
   set cursorline
   hi clear CursorLine
   " カレント行
   hi CursorLine   ctermbg=235 guibg=Grey40
   " colorcolumnの列にライン
-  hi ColorColumn  ctermbg=235 guibg=DarkRed
+  " hi ColorColumn  ctermbg=235 guibg=DarkRed
 
   "スペルチェックを下線にする
   hi clear SpellBad

@@ -74,3 +74,16 @@ nnoremap <Space>Z  :<C-u>q!<CR>
 
 " OPEN/CLOSE QUICKFIX WINDOW SETTINGS
 nnoremap <silent> <Space>q :<C-U>QFix<CR>
+
+" ------------------------------------------------------------------------------
+" highway
+" http://tkengo.github.io/blog/2015/10/19/release-highway/
+"
+nnoremap <Space>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" unite grepにhw(highway)を使う
+if executable('hw')
+    let g:unite_source_grep_command = 'hw'
+    let g:unite_source_grep_default_opts = '--no-group --no-color'
+    let g:unite_source_grep_recursive_opt = ''
+endif

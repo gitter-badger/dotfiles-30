@@ -135,7 +135,7 @@ nnoremap <silent> <Space>y :<C-u>Unite history/yank<CR>
 nnoremap <silent> <Space>b :<C-u>Unite buffer:-<CR>
 nnoremap <silent> <Space>t :<C-u>Unite tab<CR>
 nnoremap <silent> <Space>f :<C-u>Unite -start-insert file_rec/async:!<CR>
-nnoremap <silent> <Space>g :<C-u>Unite -start-insert file_rec/git<CR>
+nnoremap <silent> <Space>G :<C-u>Unite -start-insert file_rec/git<CR>
 nnoremap <silent> <Space>r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <Space>i :<C-u>Unite file_include<CR>
 nnoremap <silent> <Space>l :<C-u>Unite -start-insert line<CR>

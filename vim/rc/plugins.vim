@@ -523,14 +523,14 @@ endfunction
 "vimデフォルトのエクスプローラをvimfilerで置き換える
 let g:vimfiler_as_default_explorer = 1
 "デフォルトのキーマッピングを変更
-nnoremap <Space>F :VimFilerExplorer<CR>
+nnoremap <Space>F :VimFilerBufferDir<CR>
 
 augroup vim-filer
     autocmd FileType vimfiler call s:vimfiler_my_settings()
 augroup END
 function! s:vimfiler_my_settings()
-    nmap <buffer> q <Plug>(vimfiler_exit)
-    nmap <buffer> Q <Plug>(vimfiler_hide)
+    nmap <buffer> Q <Plug>(vimfiler_exit)
+    nmap <buffer> q <Plug>(vimfiler_hide)
     nmap <buffer> <C-j> <C-w>j
     nmap <buffer> <C-k> <C-w>k
     nmap <buffer> <C-h> <C-w>h

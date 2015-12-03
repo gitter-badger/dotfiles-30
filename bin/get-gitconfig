@@ -4,4 +4,4 @@ cd `tmux display-message -p -F "#{pane_current_path}"`
 m_user=`git config --get user.name`
 m_email=`git config --get user.email`
 
-echo "${m_user}|${m_email}"
+echo "${m_user}/${m_email}"

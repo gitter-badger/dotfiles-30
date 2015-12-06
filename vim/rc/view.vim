@@ -3,6 +3,11 @@ set laststatus=2
 set showtabline=2
 set scrolloff=5
 
+if IsMac()
+    set guioptions-=r
+    set guioptions-=L
+endif
+
 syntax enable
 if has('syntax')
   let g:hybrid_use_Xresources = 1

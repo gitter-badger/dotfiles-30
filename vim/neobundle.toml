@@ -65,6 +65,12 @@ mappings   = '<Plug>'
 
 # GIT
 [[plugins]]
+repository = 'airblade/vim-rooter'
+
+[[plugins]]
+repository = 'jreybert/vimagit'
+
+[[plugins]]
 repository = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -93,7 +99,7 @@ repository = 'haya14busa/incsearch.vim'
 
 # GTAGS
 [[plugins]]
-repository = '5t111111/alt-gtags.vim'
+repository = 'hewes/unite-gtags'
 
 # SYNTAX CHECK
 [[plugins]]

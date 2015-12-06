@@ -39,3 +39,38 @@ function! Mopp_fold()
 
     return printf('%s%' . space_size . 'S%s', line, '', tail)
 endfunction
+
+" ------------------------------------------------------------------------------
+" file type 毎設定
+" -- C/C++
+" 標準ライブラリへのパスを設定
+" http://d.hatena.ne.jp/osyo-manga/20131219/1387465034
+"
+let $CPP_STDLIB = "/usr/include/c++"
+augroup vimrc-set_filetype_cpp_stdlib
+    autocmd!
+    " $CPP_STDLIB よりも下の階層のファイルが開かれて
+    " filetype が設定されていない場合に filetype=cpp を設定する
+    autocmd BufReadPost $CPP_STDLIB/* if empty(&filetype) | set filetype=cpp | endif
+augroup END
+
+" ------------------------------------------------------------------------------
+" 名前空間の入力を簡単にする
+" http://rhysd.hatenablog.com/entry/2013/12/10/233201#namespace
+"
+augroup cpp-namespace
+    autocmd!
+    autocmd FileType cpp inoremap <buffer><expr>; <SID>expand_namespace()
+augroup END
+function! s:expand_namespace()
+    let s = getline('.')[0:col('.')-1]
+    if s =~# '\<b;$'
+        return "\<BS>oost::"
+    elseif s =~# '\<s;$'
+        return "\<BS>td::"
+    elseif s =~# '\<d;$'
+        return "\<BS>etail::"
+    else
+        return ';'
+    endif
+endfunction

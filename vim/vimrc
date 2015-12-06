@@ -85,7 +85,6 @@ call neobundle#begin(expand('$CACHE/neobundle'))
 if neobundle#load_cache()
     NeoBundleFetch 'Shougo/neobundle.vim'
 
-    " call neobundle#load_toml('~/.vim/neobundle.toml', {'lazy' : 1})
     call neobundle#load_toml('~/.vim/neobundle.toml')
 
     NeoBundleSaveCache

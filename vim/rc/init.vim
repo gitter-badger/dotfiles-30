@@ -103,14 +103,10 @@ set lazyredraw
 set list
 set listchars=tab:\|\ ,trail:~
 set display=uhex
-if exists('&ambiwidth')
-  set ambiwidth=double
-endif
+set ambiwidth=double
 
 " 曖昧な文字列幅を全角
-if exists('&ambw')
-    set ambw=double
-endif
+set ambw=double
 
 " ファイル京
 set autoread

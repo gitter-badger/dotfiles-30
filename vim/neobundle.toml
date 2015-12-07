@@ -77,6 +77,9 @@ repository = 'tpope/vim-fugitive'
 repository = 'airblade/vim-gitgutter'
 
 [[plugins]]
+repository = 'jreybert/vimagit'
+
+[[plugins]]
 repository = 'rhysd/committia.vim'
 
 [[plugins]]

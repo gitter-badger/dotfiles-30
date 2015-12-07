@@ -14,6 +14,9 @@ repository = 'Shougo/vimproc.vim'
 repository = 'Shougo/neocomplete.vim'
 depends    = 'Shougo/context_filetype.vim'
 insert     = 1
+    [[plugins]]
+    repository = 'Shougo/neoinclude.vim'
+    depends    = 'Shougo/neocomplete.vim'
 
 [[plugins]]
 repository = 'Shougo/neosnippet.vim'

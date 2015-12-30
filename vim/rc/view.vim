@@ -6,6 +6,7 @@ set scrolloff=5
 " gvim hide scrollber
 set guioptions-=r
 set guioptions-=L
+set guicursor=a:blinkon0
 
 syntax enable
 if has('syntax')

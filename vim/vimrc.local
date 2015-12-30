@@ -1,4 +1,7 @@
-" LINE
+" Highlight Row
+hi CursorLine   ctermbg=235 guibg=Grey40
+
+" Highlight Column
 " set colorcolumn=100
 
 set path=.,include,../include,/usr/include,/usr/local/include

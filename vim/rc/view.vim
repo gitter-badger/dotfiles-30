@@ -19,10 +19,10 @@ if has('syntax')
   " hi CursorLineNr ctermbg=235 ctermfg=3
   set cursorline
   hi clear CursorLine
-  " カレント行
-  hi CursorLine   ctermbg=235 guibg=Grey40
-  " colorcolumnの列にライン
-  " hi ColorColumn  ctermbg=235 guibg=DarkRed
+
+ " Highlight Column
+ " On/Off is vimrc.local
+ hi ColorColumn  ctermbg=235 guibg=DarkRed
 
   "スペルチェックを下線にする
   hi clear SpellBad
